@@ -49,10 +49,28 @@
 				<td>{{jobIDtoAttr[model.id].categories}}</td>
 			</tr>
 
+			<tr>
+				<th>Expires At (EST)</th>
+				<td>{{model.attributes['exiresAt'] | date: 'medium' : -0500}}</td>
+			</tr>
+
+			<tr>
+				<th>Created (EST)</th>
+				<td>{{model.attributes['created'] | date: 'medium' : -0500}}</td>
+			</tr>
+
+			<tr>
+				<th>Modified (EST)</th>
+				<td>{{model.attributes['modified'] | date: 'medium' : -0500}}</td>
+			</tr>
+
+
 			<tr ng-repeat="field in rdesc.attributes.fields"
 					ng-if="field.name !== 'id' && field.name !== 'description'
 							&& field.name !== 'employer' && field.name !== 'desiredSkills'
-							&& field.name !== 'categories' && field.name !== 'applicationUrl'">
+							&& field.name !== 'categories' && field.name !== 'applicationUrl'
+							&& field.name !== 'exiresAt' && field.name !== 'created'
+							&& field.name !== 'modified'">
 				<th>{{field['friendly-name']}}</th>
 				<td>{{model.attributes[field.name]}}</td>
 			</tr>
