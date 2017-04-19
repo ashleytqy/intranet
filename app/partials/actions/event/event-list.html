@@ -33,9 +33,31 @@
 					&& field.name !== 'level' && field.name !== 'rsvpUrl'
 					&& field.name !== 'body' && field.name !== 'aims'
 					&& field.name !== 'rsvps' && field.name !== 'alternateRsvpUrls'
-					&& field.name !== 'categories' && field.name !== 'details'">
+					&& field.name !== 'categories' && field.name !== 'details'
+					&& field.name !== 'startDateTime' && field.name !== 'endDateTime'
+					&& field.name !== 'created' && field.name !== 'modified'">
 				<th>{{field['friendly-name']}}</th>
 				<td>{{model.attributes[field.name]}}</td>
+			</tr>
+
+			<tr>
+				<th>Start Date Time</th>
+				<td>{{model.attributes['startDateTime'] | date: 'medium' : -0500}}</td>
+			</tr>
+
+			<tr>
+				<th>End Date Time</th>
+				<td>{{model.attributes['endDateTime'] | date: 'medium' : -0500}}</td>
+			</tr>
+
+			<tr>
+				<th>Created</th>
+				<td>{{model.attributes['created'] | date: 'medium' : -0500}}</td>
+			</tr>
+
+			<tr>
+				<th>Modified</th>
+				<td>{{model.attributes['modified'] | date: 'medium' : -0500}}</td>
 			</tr>
 
 			<tr>
