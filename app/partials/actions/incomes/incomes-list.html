@@ -25,7 +25,9 @@
 			</tr>
 
 			<tr ng-repeat="field in rdesc.attributes.fields"
-					ng-if="field.name !== 'id' && field.name !== 'authorizer'">
+					ng-if="field.name !== 'id' && field.name !== 'authorizer'
+						&& field.name !== 'created' && field.name !== 'modified'
+						&& field.name !== 'recievedOn'">
 				<th>{{field['friendly-name']}}</th>
 				<td>{{model.attributes[field.name]}}</td>
 			</tr>
@@ -33,6 +35,21 @@
 			<tr>
 				<th>Authorizer</th>
 				<td>{{authorizer[model.id]}}</td>
+			</tr>
+			
+			<tr>
+				<th>Recieved On (EST)</th>
+				<td>{{model.attributes['recievedOn'] | date: 'medium' : -0500}}</td>
+			</tr>
+
+			<tr>
+				<th>Created (EST)</th>
+				<td>{{model.attributes['created'] | date: 'medium' : -0500}}</td>
+			</tr>
+
+			<tr>
+				<th>Modified (EST)</th>
+				<td>{{model.attributes['modified'] | date: 'medium' : -0500}}</td>
 			</tr>
 		</table>
 	</div>
