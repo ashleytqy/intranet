@@ -30,9 +30,20 @@
 			</tr>
 
 			<tr ng-repeat="field in rdesc.attributes.fields"
-					ng-if="field.name !== 'id' && field.name !== 'organization'">
+					ng-if="field.name !== 'id' && field.name !== 'organization'
+						&& field.name !== 'created' && field.name !== 'modified'">
 				<th>{{field['friendly-name']}}</th>
 				<td>{{model.attributes[field.name]}}</td>
+			</tr>
+
+			<tr>
+				<th>Created (EST)</th>
+				<td>{{model.attributes['created'] | date: 'medium' : -0500}}</td>
+			</tr>
+
+			<tr>
+				<th>Modified (EST)</th>
+				<td>{{model.attributes['modified'] | date: 'medium' : -0500}}</td>
 			</tr>
 		</table>
 	</div>
